@@ -26,4 +26,4 @@ jobs:
           git remote set-url origin https://x-access-token:${PAT}@github.com/EdwardChCriollo/CINSscore-Automation-JACENET.git
           git add CINSscore_modified.rsc
           git commit -m "Updated modified CINSscore.rsc" || echo "No changes to commit"
-          git push origin main
+          git push https://$PAT@github.com/EdwardChCriollo/CINSscore-Automation-JACENET.git main
