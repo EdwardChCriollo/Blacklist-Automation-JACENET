@@ -25,4 +25,4 @@ jobs:
           git config --global user.name "GitHub Bot"
           git add CINSscore_modified.rsc
           git commit -m "Updated modified CINSscore.rsc" || echo "No changes to commit"
-          git push https://x-access-token:$PAT@github.com/EdwardChCriollo/CINSscore-Automation.git main
+          git push https://x-access-token:$PAT@github.com/EdwardChCriollo/CINSscore-Automation-JACENET.git main
