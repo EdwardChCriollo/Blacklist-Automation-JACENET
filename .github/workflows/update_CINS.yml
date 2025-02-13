@@ -14,7 +14,7 @@ jobs:
 
       - name: Download and Modify File
         run: |
-          curl -o CINSscore.rsc https://joshaven.com/CINSscore.rsc
+          curl -o CINSscore.rsc http://joshaven.com/CINSscore.rsc
           sed 's/blacklist/malicious/g' CINSscore.rsc > CINSscore_modified.rsc
 
       - name: Commit and Push Changes
