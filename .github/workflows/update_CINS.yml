@@ -23,6 +23,7 @@ jobs:
         run: |
           git config --global user.email "bot@example.com"
           git config --global user.name "GitHub Bot"
+          git remote set-url origin https://x-access-token:${PAT}@github.com/EdwardChCriollo/CINSscore-Automation-JACENET.git
           git add CINSscore_modified.rsc
           git commit -m "Updated modified CINSscore.rsc" || echo "No changes to commit"
-          git push https://$PAT@github.com/EdwardChCriollo/CINSscore-Automation-JACENET.git main
+          git push origin main
