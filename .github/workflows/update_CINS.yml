@@ -14,11 +14,15 @@ jobs:
 
       - name: Download and Modify File
         run: |
-          curl -o CINSscore.rsc http://joshaven.com/CINSscore.rsc
+          curl -o CINSscore.rsc https://joshaven.com/CINSscore.rsc
           sed 's/blacklist/malicious/g' CINSscore.rsc > CINSscore_modified.rsc
+
+      - name: Commit and Push Changes
+        env:
+          PAT: ${{ secrets.GH_PAT }}
+        run: |
           git config --global user.email "bot@example.com"
           git config --global user.name "GitHub Bot"
           git add CINSscore_modified.rsc
-          git commit -m "Updated modified CINSscore.rsc"
-          git push
-
+          git commit -m "Updated modified CINSscore.rsc" || echo "No changes to commit"
+          git push https://x-access-token:$PAT@github.com/TU_USUARIO/CINSscore-Automation.git main
