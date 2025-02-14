@@ -1,0 +1,28 @@
+name: Update spamhaus.rsc
+
+on:
+  schedule:
+    - cron: "0 * * * *"  # Corre cada hora
+  workflow_dispatch:  # Permite ejecutarlo manualmente
+
+jobs:
+  update-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Download and Modify File
+        run: |
+          curl -o spamhaus.rsc https://joshaven.com/spamhaus.rsc
+          sed 's/blacklist/blacklist_SPAMHAUS/g' spamhaus.rsc > SPAMHAUS_modified.rsc
+
+      - name: Commit and Push Changes
+        env:
+          PAT: ${{ secrets.GH_PAT }}
+        run: |
+          git config --global user.email "bot@example.com"
+          git config --global user.name "GitHub Bot"
+          git add SPAMHAUS_modified.rsc
+          git commit -m "Updated modified spamhaus.rsc" || echo "No changes to commit"
+          git push https://x-access-token:${PAT}@github.com/EdwardChCriollo/Blacklist-Automation-JACENET.git main
