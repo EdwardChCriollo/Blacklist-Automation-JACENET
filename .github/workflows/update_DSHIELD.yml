@@ -2,7 +2,7 @@ name: Update dshield.rsc
 
 on:
   schedule:
-    - cron: "0 1 */2 * *"  # Corre cada dos dias
+    - cron: "10 1 */2 * *"  # Corre cada dos dias
   workflow_dispatch:  # Permite ejecutarlo manualmente
 
 jobs:
