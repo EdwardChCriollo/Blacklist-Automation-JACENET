@@ -2,7 +2,7 @@ name: Update spamhaus.rsc
 
 on:
   schedule:
-    - cron: "15 1 * * *"  # Corre cada dia
+    - cron: "15 6 * * *"  # Corre cada dia
   workflow_dispatch:  # Permite ejecutarlo manualmente
 
 jobs:
