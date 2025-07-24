@@ -2,7 +2,7 @@ name: Update CINSscore.rsc
 
 on:
   schedule:
-    - cron: "5 1 * * *"  # Corre cada dia
+    - cron: "5 6 * * *"  # Corre cada dia
   workflow_dispatch:  # Permite ejecutarlo manualmente
 
 jobs:
