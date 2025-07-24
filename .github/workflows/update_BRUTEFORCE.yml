@@ -2,7 +2,7 @@ name: Update bruteforce.rsc
 
 on:
   schedule:
-    - cron: "0 1 * * *"  # Corre cada dia
+    - cron: "0 6 * * *"  # Corre cada dia
   workflow_dispatch:  # Permite ejecutarlo manualmente
 
 jobs:
