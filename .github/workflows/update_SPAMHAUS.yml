@@ -15,7 +15,6 @@ jobs:
       - name: Download and Modify File
         run: |
           curl -o spamhaus.rsc https://joshaven.com/spamhaus.rsc
-          sed 's/blacklist/blacklist_SPAMHAUS/g' spamhaus.rsc > SPAMHAUS_modified.rsc
           sed 's/blacklist/blacklist_SPAMHAUS/g' spamhaus.rsc \
             | sed '/^$/d' \
             | awk '!seen[$0]++' \
