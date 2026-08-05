@@ -15,7 +15,10 @@ jobs:
       - name: Download and Modify File
         run: |
           curl -o dshield.rsc https://joshaven.com/dshield.rsc
-          sed 's/blacklist/blacklist_DSHIELD/g' dshield.rsc > DSHIELD_modified.rsc
+          sed 's/blacklist/blacklist_DSHIELD/g' dshield.rsc \
+            | sed '/^$/d' \
+            | awk '!seen[$0]++' \
+            > DSHIELD_modified.rsc
 
       - name: Commit and Push Changes
         env:
